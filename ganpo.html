@@ -7,582 +7,170 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&display=swap">
-<style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;padding:0}
-img{max-width:100%}
-[hidden]{display:none!important}
-:root{
-  --ground:#F3F6F8; --paper:#FFFFFF; --ink:#16202E; --muted:#5A6576; --line:#DCE3EA;
-  --cobalt:#1D3F91; --cobalt-soft:#E4EAF7; --kiln:#B0502A; --kiln-soft:#F7E7DF;
-  --celadon:#3F7F6B; --celadon-soft:#E1F0EA;
-  --serif:"Noto Serif SC","Songti SC","STSong",serif;
-  --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --ground:#0E131B; --paper:#161D28; --ink:#E6EAF0; --muted:#9BA6B6; --line:#263142;
-    --cobalt:#93B1F2; --cobalt-soft:#1D2A44; --kiln:#E79068; --kiln-soft:#3A2419;
-    --celadon:#86C0AB; --celadon-soft:#17302A;
-  }
-}
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --ground:#0E131B; --paper:#161D28; --ink:#E6EAF0; --muted:#9BA6B6; --line:#263142;
-  --cobalt:#93B1F2; --cobalt-soft:#1D2A44; --kiln:#E79068; --kiln-soft:#3A2419;
-  --celadon:#86C0AB; --celadon-soft:#17302A;
-}
-*{box-sizing:border-box}
-body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7}
-.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:0 64px}
-a{color:var(--cobalt)}
-:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
-
-header{padding-block:40px 20px}
-.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--cobalt);font-weight:600}
-h1{font-family:var(--serif);font-weight:900;font-size:clamp(34px,8vw,52px);line-height:1.15;margin:.2em 0 .3em;text-wrap:balance}
-.lede{color:var(--muted);max-width:36em;margin:0}
-.band{height:10px;margin-top:22px;border-radius:2px;
-  background:
-   radial-gradient(circle at 10px 10px, transparent 5px, var(--cobalt) 5.5px, var(--cobalt) 7px, transparent 7.5px) 0 0/20px 20px;
-  opacity:.55}
-
-.route{display:flex;flex-wrap:wrap;align-items:center;gap:6px 4px;margin-block:22px 8px;font-size:14px}
-.route b{font-family:var(--serif);font-weight:600;background:var(--paper);border:1px solid var(--line);padding:2px 10px;border-radius:4px}
-.route i{font-style:normal;color:var(--muted);font-size:12px;white-space:nowrap}
-.note{font-size:12.5px;color:var(--muted)}
-
-nav:not(.switch){position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);border-bottom:1px solid var(--line);margin-inline:-16px;padding:10px 16px}
-.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chips a{flex:none;text-decoration:none;color:var(--ink);font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font-variant-numeric:tabular-nums}
-.chips a.today{background:var(--cobalt);border-color:var(--cobalt);color:var(--paper)}
-
-.day{margin-top:34px;scroll-margin-top:70px}
-.dayhead{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline;border-bottom:2px solid var(--cobalt);padding-bottom:8px}
-.date{font-family:var(--serif);font-weight:900;font-size:30px;color:var(--cobalt);font-variant-numeric:tabular-nums;line-height:1}
-.date small{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--muted);margin-left:4px}
-.dayhead h2{font-family:var(--serif);font-weight:600;font-size:21px;margin:0;line-height:1.3}
-.dayhead p{grid-column:1/-1;margin:4px 0 0;color:var(--muted);font-size:14px}
-.today-flag{display:inline-block;font-family:var(--sans);font-size:11px;background:var(--cobalt);color:var(--paper);padding:0 7px;border-radius:3px;margin-left:8px;vertical-align:middle}
-
-.tl{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:0}
-.tl li{display:grid;grid-template-columns:52px 1fr;gap:12px;padding-block:10px;border-bottom:1px dashed var(--line)}
-.tl li:last-child{border-bottom:0}
-.t{font-size:12px;color:var(--muted);padding-top:3px;letter-spacing:.04em}
-.tl h3{margin:0;font-size:15.5px;font-weight:650;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
-.tl p{margin:3px 0 0;font-size:14px;color:var(--ink)}
-.tl p.c{color:var(--muted);font-size:13px}
-.tag{font-size:11px;font-weight:600;padding:0 6px;border-radius:3px;line-height:1.7;white-space:nowrap}
-.hot{background:var(--cobalt-soft);color:var(--cobalt)}
-.warn{background:var(--kiln-soft);color:var(--kiln)}
-.opt{border:1px solid var(--line);color:var(--muted);font-weight:500}
-
-.side{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-@media (max-width:560px){.side{grid-template-columns:1fr}}
-.box{border-radius:6px;padding:10px 14px;font-size:13.5px}
-.box h4{margin:0 0 4px;font-size:12px;letter-spacing:.1em}
-.box ul{margin:0;padding-left:1.1em}
-.box li{margin:2px 0}
-.food{background:var(--celadon-soft)} .food h4{color:var(--celadon)}
-.pit{background:var(--kiln-soft)} .pit h4{color:var(--kiln)}
-
-section.extra{margin-top:44px}
-section.extra h2{font-family:var(--serif);font-weight:600;font-size:22px;margin:0 0 10px;border-bottom:2px solid var(--cobalt);padding-bottom:6px}
-.check{list-style:none;padding:0;margin:0;display:grid;gap:2px}
-.check label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line);cursor:pointer}
-.check input{margin-top:5px;accent-color:var(--cobalt);width:16px;height:16px;flex:none}
-.check input:checked + span{color:var(--muted);text-decoration:line-through}
-.rain{width:100%;border-collapse:collapse;font-size:14px}
-.rain td{padding:8px 6px;border-bottom:1px dashed var(--line);vertical-align:top}
-.rain td:first-child{font-family:var(--serif);font-weight:600;white-space:nowrap;color:var(--cobalt);width:5em}
-footer{margin-top:40px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
-@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-
-.switch{margin-bottom:16px;display:flex;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px;gap:3px;max-width:420px}
-.switch a{flex:1;text-align:center;text-decoration:none;font-size:14px;font-weight:600;color:var(--muted);padding:8px 10px;border-radius:999px;line-height:1.3}
-.switch a small{display:block;font-size:11px;font-weight:400}
-.switch a[aria-current="page"]{background:var(--cobalt);color:var(--paper)}
-.switch a:not([aria-current]):hover{color:var(--ink)}
-</style>
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
-
-<div class="wrap">
-<header>
-  <nav class="switch" aria-label="切换行程版本">
-    <a aria-current="page" href="ganpo.html">苏州自驾版<small>鄱阳 · 南昌起步</small></a>
-    <a href="jiangxi.html">三清山版<small>含天气预报</small></a>
-  </nav>
-  <div class="eyebrow">2026.09.27 — 10.06 · 苏州出发 · 自驾估算</div>
-  <h1>赣鄱国庆十日行</h1>
-  <p class="lede">按调整后的行程逐日排好：每站只留小红书高赞、高收藏笔记里反复出现的地方，评论区里集中吐槽的坑单独标出来。</p>
-  <div class="band" aria-hidden="true"></div>
-  <div class="route" aria-label="路线">
-    <b>苏州</b><i>→ 约6h →</i><b>鄱阳</b><i>→ 2h →</i><b>南昌</b><i>→ 2h →</i><b>万年</b><i>→ 1.5h →</i><b>景德镇</b><i>→ 1.5h →</i><b>婺源</b><i>→ 3h →</i><b>龙虎山</b><i>→ 3h →</i><b>庐山</b><i>→ 7h →</i><b>回家</b>
-  </div>
-  <p class="note">车程为平日自驾大概值，国庆高速拥堵请多留 30%–50%。标签说明：<span class="tag hot">高赞推荐</span> 笔记里出现最多、收藏最高；<span class="tag warn">评论避雷</span> 评论区高频吐槽；<span class="tag opt">可选</span> 时间体力够再去。</p>
-</header>
-
-<nav aria-label="按日期跳转"><div class="chips" id="chips">
-  <a href="#d0927" data-d="2026-09-27">9/27 苏州</a>
-  <a href="#d0928" data-d="2026-09-28">9/28 鄱阳</a>
-  <a href="#d0929" data-d="2026-09-29">9/29 梅岭</a>
-  <a href="#d0930" data-d="2026-09-30">9/30 神农宫</a>
-  <a href="#d1001" data-d="2026-10-01">10/1 景德镇</a>
-  <a href="#d1002" data-d="2026-10-02">10/2 婺源</a>
-  <a href="#d1003" data-d="2026-10-03">10/3 鹰潭</a>
-  <a href="#d1004" data-d="2026-10-04">10/4 庐山</a>
-  <a href="#d1005" data-d="2026-10-05">10/5 庐山</a>
-  <a href="#d1006" data-d="2026-10-06">10/6 返程</a>
-  <a href="#prep">出发前</a>
-  <a href="#rain">雨天备选</a>
-</div></nav>
-
-<!-- 9/27 -->
-<article class="day" id="d0927" data-d="2026-09-27">
-  <div class="dayhead">
-    <div class="date">9/27<small>周日</small></div>
-    <h2>苏州 · 夜游古城</h2>
-    <p>只住一晚，把时间给夜景和第二天早上的一碗头汤面。</p>
-  </div>
-  <ol class="tl">
-    <li><span class="t">傍晚</span><div>
-      <h3>平江路 <span class="tag hot">高赞推荐</span></h3>
-      <p>河边石板路，天黑挂灯后最出片。猫的天空之城书店可以寄一张"慢递"明信片给自己。</p>
-    </div></li>
-    <li><span class="t">晚上</span><div>
-      <h3>山塘街 · 通贵桥 <span class="tag hot">高赞推荐</span></h3>
-      <p>七里山塘夜景的经典机位在通贵桥一带，可以坐一段夜游船。</p>
-      <p class="c">评论：节假日很挤，21 点后人少一些。</p>
-    </div></li>
-    <li><span class="t">白天</span><div>
-      <h3>拙政园 / 苏州博物馆 <span class="tag opt">可选</span></h3>
-      <p>如果白天就到苏州可以去。两处都要提前实名预约，国庆经常约满。</p>
-    </div></li>
-  </ol>
-  <div class="side">
-    <div class="box food"><h4>吃什么</h4><ul>
-      <li>苏式汤面，早上吃"头汤面"</li>
-      <li>生煎、蟹壳黄</li>
-      <li>苏帮菜：松鼠桂鱼、响油鳝糊</li>
-      <li>鸡头米桂花酒酿，9 月底还赶得上新鲜鸡头米</li>
-    </ul></div>
-    <div class="box pit"><h4>评论避雷</h4><ul>
-      <li>观前街被吐槽商业化，路过即可</li>
-      <li>山塘街拉客的游船报价先问清</li>
-      <li>28 日要赶长途，早饭后尽早出发</li>
-    </ul></div>
-  </div>
-</article>
-
-<!-- 9/28 -->
-<article class="day" id="d0928" data-d="2026-09-28">
-  <div class="dayhead">
-    <div class="date">9/28<small>周一</small></div>
-    <h2>苏州 → 鄱阳 → 南昌</h2>
-    <p>赶路日。下午到鄱阳吃一顿湖鲜，晚上进南昌住下。</p>
-  </div>
-  <ol class="tl">
-    <li><span class="t">上午</span><div>
-      <h3>出发去鄱阳</h3>
-      <p>自驾约 550 km。坐高铁的话可以走杭黄线接昌景黄线，到鄱阳站，车次以 12306 为准。</p>
-    </div></li>
-    <li><span class="t">傍晚</span><div>
-      <h3>鄱阳湖国家湿地公园 <span class="tag opt">可选</span></h3>
-      <p>秋天水位下降，湖床露出大片草洲，笔记里叫它"鄱阳湖草原"，适合看日落。</p>
-      <p class="c">候鸟要等到 11 月以后，这次看不到大群候鸟，别抱这个期待。</p>
-    </div></li>
-    <li><span class="t">晚饭</span><div>
-      <h3>鄱阳湖鲜 <span class="tag hot">高赞推荐</span></h3>
-      <p>认准湖鱼：鱼头、鳜鱼、银鱼炒蛋、湖虾、螺蛳。10 月初也开始有鄱阳湖大闸蟹了。</p>
-    </div></li>
-    <li><span class="t">晚上</span><div>
-      <h3>去南昌，约 2 小时</h3>
-      <p>住八一广场、万寿宫或红谷滩秋水广场附近，第二天去梅岭、晚上看滕王阁都方便。</p>
-    </div></li>
-  </ol>
-  <div class="side">
-    <div class="box food"><h4>点菜提醒</h4><ul>
-      <li>江西菜普遍重辣，评论区公认"微辣也很辣"</li>
-      <li>不吃辣就直接说"不放辣"</li>
-    </ul></div>
-    <div class="box pit"><h4>评论避雷</h4><ul>
-      <li>湖鲜按斤称的先问单价再下锅</li>
-      <li>湖边路段晚上偏黑，夜里开车注意</li>
-    </ul></div>
-  </div>
-</article>
-
-<!-- 9/29 -->
-<article class="day" id="d0929" data-d="2026-09-29">
-  <div class="dayhead">
-    <div class="date">9/29<small>周二</small></div>
-    <h2>南昌 · 梅岭 + 滕王阁夜景</h2>
-    <p>白天进山避暑，傍晚回城看赣江日落和亮灯。</p>
-  </div>
-  <ol class="tl">
-    <li><span class="t">早餐</span><div>
-      <h3>南昌拌粉 + 瓦罐汤 <span class="tag hot">高赞推荐</span></h3>
-      <p>南昌人的标准早餐，街边小店就行，配一个白糖糕。</p>
-    </div></li>
-    <li><span class="t">上午</span><div>
-      <h3>梅岭 · 洪崖丹井 <span class="tag hot">高赞推荐</span></h3>
-      <p>市区西北约 40 分钟车程。峡谷溪水和小瀑布，传说是中国乐律的发源地，游览 1–1.5 小时。</p>
-    </div></li>
-    <li><span class="t">下午</span><div>
-      <h3>梅岭盘山公路 / 狮子峰 <span class="tag opt">可选</span></h3>
-      <p>天气好就沿盘山路兜一圈，山上能看到南昌城区。中午在山里吃农家菜，竹笋和土鸡。</p>
-      <p class="c">评论：景点分散，没车很不方便；期待别太高，胜在清凉安静。</p>
-    </div></li>
-    <li><span class="t">傍晚</span><div>
-      <h3>滕王阁 <span class="tag hot">高赞推荐</span></h3>
-      <p>笔记几乎都建议傍晚进，登顶看赣江日落，等天黑亮灯。"落霞与孤鹜齐飞"就在这里。</p>
-    </div></li>
-    <li><span class="t">晚上</span><div>
-      <h3>秋水广场音乐喷泉 / 万寿宫街区</h3>
-      <p>喷泉在滕王阁对岸，演出一般在晚上，场次以当天公告为准。想吃夜宵就去万寿宫。</p>
-    </div></li>
-  </ol>
-  <div class="side">
-    <div class="box food"><h4>吃什么</h4><ul>
-      <li>南昌炒粉、米粉蒸肉</li>
-      <li>三杯鸡（江西本地菜）</li>
-      <li>酱鸭、鸭脖</li>
-      <li>白糖糕、麻圆</li>
-    </ul></div>
-    <div class="box pit"><h4>评论避雷</h4><ul>
-      <li>滕王阁白天去被说"一般"，夜景才值</li>
-      <li>八一广场附近停车难，打车更省事</li>
-    </ul></div>
-  </div>
-</article>
-
-<!-- 9/30 -->
-<article class="day" id="d0930" data-d="2026-09-30">
-  <div class="dayhead">
-    <div class="date">9/30<small>周三</small></div>
-    <h2>万年神农宫 → 景德镇</h2>
-    <p>上午钻溶洞，下午到景德镇，晚上直接去陶溪川。</p>
-  </div>
-  <ol class="tl">
-    <li><span class="t">早上</span><div>
-      <h3>南昌出发，约 2 小时到万年</h3>
-    </div></li>
-    <li><span class="t">上午</span><div>
-      <h3>神农宫溶洞 <span class="tag hot">高赞推荐</span></h3>
-      <p>喀斯特溶洞，钟乳石规模大，灯光做得很出片，游览约 1.5 小时。</p>
-      <p class="c">洞里凉又湿滑，带件薄外套，穿防滑的鞋。</p>
-    </div></li>
-    <li><span class="t">顺路</span><div>
-      <h3>仙人洞与吊桶环遗址 <span class="tag opt">可选</span></h3>
-      <p>世界上最早的栽培稻和陶器遗存之一，对考古有兴趣可以顺路看。中午吃一碗万年贡米饭。</p>
-    </div></li>
-    <li><span class="t">下午</span><div>
-      <h3>去景德镇，约 1.5 小时</h3>
-      <p>住陶溪川或陶阳里附近，两晚都方便步行逛夜市。</p>
-    </div></li>
-    <li><span class="t">晚上</span><div>
-      <h3>陶溪川 <span class="tag hot">高赞推荐</span></h3>
-      <p>老瓷厂改造的园区，景德镇收藏量最高的地方。夜里的创意市集全是年轻手作人摆摊，节假日开放时间看官方公告。</p>
-    </div></li>
-  </ol>
-  <div class="side">
-    <div class="box food"><h4>景德镇吃什么</h4><ul>
-      <li>冷粉（早餐当地人的最爱）</li>
-      <li>碱水粑、饺子粑</li>
-      <li>油条包麻糍</li>
-      <li>瓷泥煨鸡，要提前订</li>
-    </ul></div>
-    <div class="box pit"><h4>评论避雷</h4><ul>
-      <li>陶溪川市集周末和节假日人极多，早点去</li>
-      <li>路边"大师作品"溢价严重，别冲动</li>
-    </ul></div>
-  </div>
-</article>
-
-<!-- 10/1 -->
-<article class="day" id="d1001" data-d="2026-10-01">
-  <div class="dayhead">
-    <div class="date">10/1<small>周四</small></div>
-    <h2>景德镇 · 看窑、拉坯、淘瓷</h2>
-    <p>一天把"瓷都"的看、玩、买串起来。</p>
-  </div>
-  <ol class="tl">
-    <li><span class="t">上午</span><div>
-      <h3>御窑博物馆 + 御窑厂遗址 <span class="tag hot">高赞推荐</span></h3>
-      <p>砖拱造型的博物馆本身就是拍照点，馆内是明清官窑瓷片和复原器。需要实名预约。</p>
-    </div></li>
-    <li><span class="t">上午</span><div>
-      <h3>陶阳里历史街区</h3>
-      <p>就在御窑旁边，老街、窑址、里弄，边走边吃。</p>
-    </div></li>
-    <li><span class="t">下午</span><div>
-      <h3>古窑民俗博览区 <span class="tag hot">高赞推荐</span></h3>
-      <p>能看到柴窑烧制、手工拉坯、青花绘制的全过程，可以现场体验拉坯。带小朋友的笔记评价最高。</p>
-    </div></li>
-    <li><span class="t">下午</span><div>
-      <h3>三宝国际陶艺村 <span class="tag opt">可选</span></h3>
-      <p>山谷里的陶艺村，工作室和咖啡馆，人少安静。想躲人流选这里。</p>
-    </div></li>
-    <li><span class="t">晚上</span><div>
-      <h3>陶溪川 / 雕塑瓷厂</h3>
-      <p>再逛一次夜市。雕塑瓷厂的小店以创作者作品为主，价格比景区实在。</p>
-    </div></li>
-  </ol>
-  <div class="side">
-    <div class="box food"><h4>买瓷器</h4><ul>
-      <li>杯子、小盘这类小件性价比最高</li>
-      <li>大件让店家打包快递，多数包邮</li>
-      <li>中国陶瓷博物馆免费，也要预约</li>
-    </ul></div>
-    <div class="box pit"><h4>评论避雷</h4><ul>
-      <li>"厂家直销""大师亲笔"多是话术</li>
-      <li>国庆当天各馆预约紧，提前抢</li>
-    </ul></div>
-  </div>
-</article>
-
-<!-- 10/2 -->
-<article class="day" id="d1002" data-d="2026-10-02">
-  <div class="dayhead">
-    <div class="date">10/2<small>周五</small></div>
-    <h2>婺源 · 篁岭晒秋</h2>
-    <p>秋天的婺源就看篁岭。国庆人最多，赢在早起。</p>
-  </div>
-  <ol class="tl">
-    <li><span class="t">6:30</span><div>
-      <h3>景德镇出发，约 1.5 小时</h3>
-      <p>路过月亮湾可以停车拍几张，就在路边。</p>
-    </div></li>
-    <li><span class="t">上午</span><div>
-      <h3>篁岭 <span class="tag hot">高赞推荐</span></h3>
-      <p>家家屋顶晒红辣椒、黄菊花、稻谷，就是"晒秋"。天街、观景台、梯田都在这。</p>
-      <p class="c">笔记共识：8 点前到。索道排队太久的话可以徒步上山，大约 40 分钟。</p>
-    </div></li>
-    <li><span class="t">下午</span><div>
-      <h3>汪口 / 晓起 <span class="tag opt">可选</span></h3>
-      <p>都在篁岭附近。汪口是临水古村，晓起有成片古樟树，比热门村人少。</p>
-    </div></li>
-    <li><span class="t">晚上</span><div>
-      <h3>住江湾镇或婺源县城</h3>
-      <p>第二天要开约 3 小时去龙虎山，住县城出发更顺。</p>
-    </div></li>
-  </ol>
-  <div class="side">
-    <div class="box food"><h4>吃什么</h4><ul>
-      <li>荷包红鲤鱼</li>
-      <li>粉蒸肉、粉蒸菜</li>
-      <li>酒糟鱼、笋干烧肉</li>
-      <li>篁岭天街的晒秋小吃</li>
-    </ul></div>
-    <div class="box pit"><h4>评论避雷</h4><ul>
-      <li>李坑被吐槽商业化，时间少就跳过</li>
-      <li>石城的红枫要到 11 月下旬，现在去太早</li>
-      <li>江岭是春天看油菜花的，秋天不必去</li>
-    </ul></div>
-  </div>
-</article>
-
-<!-- 10/3 -->
-<article class="day" id="d1003" data-d="2026-10-03">
-  <div class="dayhead">
-    <div class="date">10/3<small>周六</small></div>
-    <h2>鹰潭 · 龙虎山</h2>
-    <p>丹霞山水加道教祖庭，竹筏是整座山的精华。</p>
-  </div>
-  <ol class="tl">
-    <li><span class="t">早上</span><div>
-      <h3>婺源出发，约 3 小时</h3>
-    </div></li>
-    <li><span class="t">上午</span><div>
-      <h3>泸溪河竹筏 <span class="tag hot">高赞推荐</span></h3>
-      <p>坐竹筏顺流看丹霞峰林，几乎所有笔记都说这是龙虎山最值的部分。</p>
-      <p class="c">国庆排队久，到了先取号。</p>
-    </div></li>
-    <li><span class="t">中午</span><div>
-      <h3>仙水岩 · 升棺表演 <span class="tag hot">高赞推荐</span></h3>
-      <p>现场演示古人怎样把棺木吊进崖洞，每天有固定场次，到景区先看时间再排竹筏。</p>
-    </div></li>
-    <li><span class="t">下午</span><div>
-      <h3>天师府 · 上清古镇</h3>
-      <p>道教正一派祖庭，古镇沿河，节奏慢，适合下午散步。</p>
-    </div></li>
-    <li><span class="t">下午</span><div>
-      <h3>象鼻山 <span class="tag opt">可选</span></h3>
-      <p>一块像大象喝水的岩石，要爬一段台阶，体力留给庐山的话可以不去。</p>
-    </div></li>
-    <li><span class="t">晚上</span><div>
-      <h3>住龙虎山景区附近</h3>
-      <p>明早直接出发去庐山。</p>
-    </div></li>
-  </ol>
-  <div class="side">
-    <div class="box food"><h4>吃什么</h4><ul>
-      <li>上清豆腐</li>
-      <li>泸溪河鱼</li>
-      <li>天师板栗烧土鸡</li>
-    </ul></div>
-    <div class="box pit"><h4>评论避雷</h4><ul>
-      <li>门票、竹筏、表演分开计费，买前看清套票内容</li>
-      <li>竹筏没有遮挡，带帽子和防晒</li>
-      <li>下雨时竹筏可能停航</li>
-    </ul></div>
-  </div>
-</article>
-
-<!-- 10/4 -->
-<article class="day" id="d1004" data-d="2026-10-04">
-  <div class="dayhead">
-    <div class="date">10/4<small>周日</small></div>
-    <h2>庐山 · 上山 + 经典步道</h2>
-    <p>笔记最统一的建议：住在山上的牯岭镇，两天足够。</p>
-  </div>
-  <ol class="tl">
-    <li><span class="t">上午</span><div>
-      <h3>龙虎山 → 庐山，约 3 小时</h3>
-      <p>国庆期间庐山常常限制私家车上山，要在山下换乘景区观光车。出发前看庐山官方公众号的交通通知。</p>
-    </div></li>
-    <li><span class="t">下午</span><div>
-      <h3>如琴湖 → 花径 → 锦绣谷 → 仙人洞 <span class="tag hot">高赞推荐</span></h3>
-      <p>庐山收藏量最高的一条步行线，大多是平路和下坡，全程约 2–3 小时。锦绣谷的崖边步道最出片。</p>
-    </div></li>
-    <li><span class="t">晚上</span><div>
-      <h3>牯岭街 + 庐山恋电影院 <span class="tag hot">高赞推荐</span></h3>
-      <p>电影院每天放映 1980 年的《庐山恋》，几十年没停过，看一场很有意思。</p>
-    </div></li>
-  </ol>
-  <div class="side">
-    <div class="box food"><h4>吃什么</h4><ul>
-      <li>庐山"三石"：石鱼炒蛋、石耳炖鸡、石鸡（养殖）</li>
-      <li>庐山云雾茶</li>
-    </ul></div>
-    <div class="box pit"><h4>评论避雷</h4><ul>
-      <li>山上比山下低 6–7℃，一定带外套</li>
-      <li>山上物价偏高，住宿要早订</li>
-      <li>雾大就看不到远景，别硬等</li>
-    </ul></div>
-  </div>
-</article>
-
-<!-- 10/5 -->
-<article class="day" id="d1005" data-d="2026-10-05">
-  <div class="dayhead">
-    <div class="date">10/5<small>周一</small></div>
-    <h2>庐山 · 日出 + 瀑布</h2>
-    <p>按体力二选一：三叠泉累但评价最高，五老峰轻松视野好。</p>
-  </div>
-  <ol class="tl">
-    <li><span class="t">清晨</span><div>
-      <h3>含鄱口日出 <span class="tag opt">可选</span></h3>
-      <p>天晴才值得去，云海要看运气。前一晚看好天气预报再定。</p>
-    </div></li>
-    <li><span class="t">上午</span><div>
-      <h3>三叠泉 <span class="tag hot">高赞推荐</span></h3>
-      <p>"不到三叠泉，不算庐山客"。瀑布分三级落下，但往返台阶非常多，要 3 小时左右。</p>
-      <p class="c">评论：膝盖不好慎选，下山后腿会酸好几天。</p>
-    </div></li>
-    <li><span class="t">上午</span><div>
-      <h3>或 五老峰</h3>
-      <p>五座山峰并排，登高能看到鄱阳湖，比三叠泉轻松很多。</p>
-    </div></li>
-    <li><span class="t">下午</span><div>
-      <h3>美庐别墅 + 庐山会议旧址</h3>
-      <p>都在牯岭附近，室内参观为主，下雨也能去。</p>
-    </div></li>
-  </ol>
-  <div class="side">
-    <div class="box food"><h4>体力分配</h4><ul>
-      <li>早上看日出的话，上午选五老峰</li>
-      <li>三叠泉建议一早去，避开中午人流</li>
-    </ul></div>
-    <div class="box pit"><h4>评论避雷</h4><ul>
-      <li>景区观光车高峰排队长，留出等车时间</li>
-      <li>山路湿滑，穿防滑鞋</li>
-    </ul></div>
-  </div>
-</article>
-
-<!-- 10/6 -->
-<article class="day" id="d1006" data-d="2026-10-06">
-  <div class="dayhead">
-    <div class="date">10/6<small>周二</small></div>
-    <h2>下山 · 返程</h2>
-    <p>庐山到苏州约 650 km，节后返程车多，尽量上午就出发。</p>
-  </div>
-  <ol class="tl">
-    <li><span class="t">上午</span><div>
-      <h3>白鹿洞书院 <span class="tag opt">可选</span></h3>
-      <p>在山脚，朱熹讲学的地方，林子里很安静，逛 1 小时左右。</p>
-    </div></li>
-    <li><span class="t">上午</span><div>
-      <h3>或 秀峰 <span class="tag opt">可选</span></h3>
-      <p>李白"飞流直下三千尺"写的就是这一带的瀑布，想补个庐山瀑布可以来。</p>
-    </div></li>
-    <li><span class="t">中午后</span><div>
-      <h3>开车回家</h3>
-      <p>中途在服务区多休息，两人轮换开。</p>
-    </div></li>
-  </ol>
-</article>
-
-<section class="extra" id="prep">
-  <h2>出发前要抢的预约</h2>
-  <p class="note" style="margin:0 0 6px">勾选会保存在这台设备上。</p>
-  <ul class="check" id="checklist">
-    <li><label><input type="checkbox" id="c1"><span>拙政园 / 苏州博物馆实名预约（如果要去）</span></label></li>
-    <li><label><input type="checkbox" id="c2"><span>滕王阁门票</span></label></li>
-    <li><label><input type="checkbox" id="c3"><span>御窑博物馆、中国陶瓷博物馆预约</span></label></li>
-    <li><label><input type="checkbox" id="c4"><span>景德镇瓷泥煨鸡订位</span></label></li>
-    <li><label><input type="checkbox" id="c5"><span>篁岭门票 + 索道</span></label></li>
-    <li><label><input type="checkbox" id="c6"><span>龙虎山门票 + 竹筏套票</span></label></li>
-    <li><label><input type="checkbox" id="c7"><span>庐山门票 + 观光车，确认国庆交通管制</span></label></li>
-    <li><label><input type="checkbox" id="c8"><span>庐山牯岭镇住宿（两晚）</span></label></li>
-    <li><label><input type="checkbox" id="c9"><span>外套、防滑鞋、雨伞、防晒</span></label></li>
-  </ul>
-</section>
-
-<section class="extra" id="rain">
-  <h2>雨天备选</h2>
-  <div style="overflow-x:auto">
-  <table class="rain"><tbody>
-    <tr><td>苏州</td><td>苏州博物馆本馆，建筑和展品都能看半天</td></tr>
-    <tr><td>南昌</td><td>梅岭换成江西省博物馆，或八大山人纪念馆；滕王阁雨夜照样亮灯</td></tr>
-    <tr><td>万年</td><td>神农宫本来就在洞里，不受影响</td></tr>
-    <tr><td>景德镇</td><td>御窑博物馆、中国陶瓷博物馆、古窑的室内作坊、找家店做拉坯体验</td></tr>
-    <tr><td>婺源</td><td>小雨里的徽派村子像水墨画，评论反而说好看；大雨就少走山路</td></tr>
-    <tr><td>龙虎山</td><td>竹筏可能停航，改去天师府和上清古镇</td></tr>
-    <tr><td>庐山</td><td>美庐、庐山会议旧址、庐山博物馆、庐山恋电影院都在室内</td></tr>
-  </tbody></table>
-  </div>
-</section>
-
-<footer>
-  内容整理自小红书上这条线路的热门攻略和评论区常见反馈，没有逐条抓取实时点赞数。门票、开放时间、演出场次、交通管制每年会变，出发前以景区官方公众号和 12306 为准。<br>
-  <a href="jiangxi.html">另一版行程：江西十日山水 →</a>
-</footer>
-</div>
-
+<div id="app" style="display:contents"></div>
 <script>
-(function(){
-  var d=new Date(), p=function(n){return (n<10?'0':'')+n};
-  var today=d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());
-  document.querySelectorAll('#chips a[data-d="'+today+'"]').forEach(function(a){a.classList.add('today')});
-  var art=document.querySelector('article[data-d="'+today+'"]');
-  if(art){var h=art.querySelector('h2');var s=document.createElement('span');s.className='today-flag';s.textContent='今天';h.appendChild(s);}
-  var KEY='ganpo-check';
-  var saved={};
-  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
-  document.querySelectorAll('#checklist input').forEach(function(c){
-    if(saved[c.id]) c.checked=true;
-    c.addEventListener('change',function(){
-      saved[c.id]=c.checked;
-      try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}
-    });
-  });
-})();
+window.TRIP = {
+  self: 'ganpo.html',
+  title: '赣鄱国庆十日行',
+  sub: '苏州自驾 · 9/27–10/6',
+  versions: [['苏州自驾版','ganpo.html'],['三清山版','jiangxi.html']],
+  days: [
+    { iso:'2026-09-27', date:'9/27', wk:'周日', short:'苏州', title:'苏州 · 夜游古城',
+      wx:[['24–29°C',''],['有雨 约 12mm','bad']], stay:'平江路或观前街附近',
+      items:[
+        ['16:00','到苏州，入住','放好行李，带上伞。',[]],
+        ['17:00','平江路','河边石板路，天黑挂灯后最出片。猫的天空之城书店可以寄一张慢递明信片给自己。',['+高赞推荐']],
+        ['18:30','晚饭：苏帮菜','松鼠桂鱼、响油鳝糊。',[]],
+        ['20:00','山塘街 · 通贵桥','七里山塘夜景的经典机位，可以坐一段夜游船。拉客的游船先问清价格。',['+高赞推荐','!节假日很挤']],
+        ['21:30','鸡头米桂花酒酿','9 月底还赶得上新鲜鸡头米，吃完回酒店早点睡。',[]]
+      ],
+      tips:[['下雨','今天苏州有雨，夜游带伞；白天想去拙政园、苏州博物馆要提前实名预约。']]
+    },
+    { iso:'2026-09-28', date:'9/28', wk:'周一', short:'鄱阳', title:'苏州 → 鄱阳 → 南昌',
+      wx:[['鄱阳 26–34°C',''],['晴','good']], stay:'南昌八一广场、万寿宫或红谷滩附近',
+      items:[
+        ['07:00','头汤面早餐','苏式汤面，早上第一锅汤最鲜。',[]],
+        ['08:00','出发去鄱阳','自驾约 550 km、6 小时，两人轮换开。',['!赶路日']],
+        ['12:00','服务区午饭 + 休息','',[]],
+        ['14:30','到鄱阳','',[]],
+        ['15:30','鄱阳湖国家湿地公园','秋天水位下降，湖床露出大片草洲，笔记里叫它“鄱阳湖草原”。候鸟 11 月以后才多。',['?可选']],
+        ['18:00','湖边看日落','今天日落约 18:03。',[]],
+        ['18:30','晚饭：鄱阳湖鲜','鱼头、鳜鱼、银鱼炒蛋、湖虾、螺蛳。按斤称的先问单价再下锅。',['+高赞推荐']],
+        ['20:00','开车去南昌','约 2 小时，湖边路段晚上偏黑，慢点开。',[]],
+        ['22:00','到南昌，入住','',[]]
+      ],
+      tips:[['点菜','江西菜普遍重辣，“微辣也很辣”，不吃辣直接说不放辣。']]
+    },
+    { iso:'2026-09-29', date:'9/29', wk:'周二', short:'南昌', title:'南昌 · 梅岭 + 滕王阁夜景',
+      wx:[['27–36°C',''],['午后雷阵雨','bad']], stay:'南昌（同一家）',
+      items:[
+        ['08:00','拌粉 + 瓦罐汤','南昌人的标准早餐，配一个白糖糕。',['+高赞推荐']],
+        ['09:00','出发去梅岭','市区西北约 40 分钟。',[]],
+        ['09:45','洪崖丹井','峡谷溪水和小瀑布，游览 1–1.5 小时，山里比城里凉快。',['+高赞推荐']],
+        ['11:30','梅岭农家菜','竹笋、土鸡。',[]],
+        ['13:00','梅岭盘山公路 / 狮子峰','天气好就兜一圈，山上能看到南昌城区。午后可能打雷，变天就回城。',['?可选']],
+        ['15:00','回酒店歇一下','避开最热的时候。',[]],
+        ['17:00','滕王阁','傍晚进，登顶看赣江日落（约 18:05），等天黑亮灯。白天去被评“一般”。',['+高赞推荐']],
+        ['19:30','秋水广场音乐喷泉','在滕王阁对岸，场次以当天公告为准。',[]],
+        ['21:00','万寿宫街区夜宵','南昌炒粉、酱鸭、麻圆。',[]]
+      ],
+      tips:[['停车','八一广场附近停车难，市区打车更省事。']]
+    },
+    { iso:'2026-09-30', date:'9/30', wk:'周三', short:'神农宫', title:'万年神农宫 → 景德镇',
+      wx:[['万年 25–34°C',''],['景德镇 24–31°C','']], stay:'景德镇陶溪川或陶阳里附近（连住 2 晚）',
+      items:[
+        ['07:30','早餐，南昌出发','到万年约 2 小时。',[]],
+        ['09:30','神农宫溶洞','钟乳石、石笋和地下暗河，灯光很出片，游览约 1.5 小时。洞里凉又湿滑，带薄外套。',['+高赞推荐']],
+        ['11:15','仙人洞与吊桶环遗址','世界上最早的栽培稻和陶器遗存之一，对考古有兴趣再去。',['?可选']],
+        ['12:00','午饭：万年贡米饭','',[]],
+        ['13:30','出发去景德镇','约 1.5 小时。',[]],
+        ['15:00','入住，休息','',[]],
+        ['16:30','陶溪川','老瓷厂改造的园区，下午摊位刚开，人少好逛。',['+高赞推荐']],
+        ['18:30','晚饭：小黄鱼','陶溪川里网友推荐的一家。',[]],
+        ['20:00','陶溪川夜市','年轻手作人摆摊，边逛边和摊主聊。',['!节假日人极多']],
+        ['21:30','景德镇烧烤夜宵','',[]]
+      ],
+      tips:[['买瓷器','路边“大师作品”溢价严重，别冲动。']]
+    },
+    { iso:'2026-10-01', date:'10/1', wk:'周四 · 国庆', short:'景德镇', title:'景德镇 · 看窑、拉坯、淘瓷',
+      wx:[['23–27°C',''],['零星小雨','']], stay:'景德镇（同一家）',
+      items:[
+        ['07:30','冷粉早餐','配油条包麻糍、饺子粑。',[]],
+        ['08:30','御窑博物馆 + 御窑厂遗址','砖拱造型的博物馆本身就是拍照点，需要实名预约。',['+高赞推荐','!提前预约']],
+        ['10:30','陶阳里历史街区','老街、窑址、里弄，边走边吃。',[]],
+        ['12:00','午饭：抚州弄小吃街','碱水粑、饺子粑、瓷泥煨鸡（要提前订）。',[]],
+        ['13:30','古窑民俗博览区','看柴窑烧制、手工拉坯、青花绘制，可以现场体验拉坯。',['+高赞推荐']],
+        ['16:30','三宝国际陶艺村','山谷里的工作室和咖啡馆，想躲人流就来这里。',['?可选']],
+        ['19:00','晚饭','',[]],
+        ['20:00','陶溪川 / 雕塑瓷厂','再逛一次夜市。雕塑瓷厂以创作者作品为主，价格比景区实在。',[]]
+      ],
+      tips:[['买瓷器','杯子、小盘这类小件性价比最高，大件让店家打包快递。']]
+    },
+    { iso:'2026-10-02', date:'10/2', wk:'周五 · 国庆', short:'婺源', title:'婺源 · 篁岭晒秋',
+      wx:[['20–24°C',''],['大雨 约 50mm','bad']], stay:'江湾镇或婺源县城',
+      items:[
+        ['06:30','景德镇出发','约 1.5 小时，路过月亮湾可以停车拍几张。',[]],
+        ['08:00','篁岭','屋顶晒辣椒、菊花、稻谷就是“晒秋”。8 点前到，索道排队太久可以徒步上山，约 40 分钟。',['+高赞推荐','!大雨山路滑']],
+        ['11:30','午饭：篁岭天街','',[]],
+        ['13:30','汪口','临水古村，人比热门村少。',['?可选']],
+        ['15:00','晓起','成片的古樟树。',['?可选']],
+        ['17:00','入住','',[]],
+        ['18:00','晚饭：荷包红鲤鱼','还有粉蒸肉、酒糟鱼、笋干烧肉。',[]]
+      ],
+      tips:[['大雨','今天婺源预报大雨，篁岭晒秋可能收起来。可以和 10/1 对调，雨天留在景德镇逛室内。','bad'],['避雷','李坑被吐槽商业化；石城红枫要到 11 月下旬，现在去太早。']]
+    },
+    { iso:'2026-10-03', date:'10/3', wk:'周六 · 国庆', short:'龙虎山', title:'鹰潭 · 龙虎山',
+      wx:[['20–23°C',''],['大雨 约 30mm','bad']], stay:'龙虎山景区或上清古镇附近',
+      items:[
+        ['07:30','婺源出发','约 3 小时。',[]],
+        ['10:30','游客中心买联票','门票、观光车、竹筏联票最划算，先取竹筏号。景区很大，一定坐观光车。',['!国庆排队久']],
+        ['11:00','泸溪河竹筏','顺流约 40 分钟看丹霞峰林，几乎所有笔记都说最值。大雨可能停航。',['+高赞推荐','!可能停航']],
+        ['12:00','悬棺表演','12:00 / 14:00 / 16:00 各一场，提前 20 分钟占位，左侧前排最好。',['+高赞推荐']],
+        ['12:45','午饭：上清豆腐','还有泸溪河鱼、板栗烧土鸡。',[]],
+        ['14:00','天师府 · 上清古镇','道教祖庭，红墙古柏，古镇沿河，雨天也能逛。',[]],
+        ['16:00','象鼻山','要爬一段台阶，雨大或想留体力就不去。',['?可选']],
+        ['18:00','晚饭，入住','',[]]
+      ],
+      tips:[['大雨','今天鹰潭预报大雨，竹筏停航的话先逛天师府和上清古镇。','bad']]
+    },
+    { iso:'2026-10-04', date:'10/4', wk:'周日', short:'庐山', title:'庐山 · 上山 + 西线步道',
+      wx:[['山上 8–15°C',''],['转晴','good']], stay:'牯岭街附近（连住 2 晚）',
+      items:[
+        ['07:30','龙虎山出发','约 3 小时。',[]],
+        ['10:30','山下换乘上山','国庆期间常限制私家车上山，车停山下，坐索道或景区观光车。',['!看官方交通通知']],
+        ['11:30','牯岭街入住，午饭','庐山“三石”：石鱼炒蛋、石耳炖鸡、石鸡。',[]],
+        ['13:00','如琴湖 → 花径 → 锦绣谷 → 仙人洞','收藏量最高的步行线，多是平路和下坡，约 2–3 小时。锦绣谷崖边步道最出片。',['+高赞推荐']],
+        ['16:30','回牯岭街休息','山上比山下低 6–7°C，加件外套。',[]],
+        ['18:00','晚饭','',[]],
+        ['19:30','庐山恋电影院','每天放映 1980 年的《庐山恋》，几十年没停过。',['+高赞推荐']]
+      ],
+      tips:[['住宿','山上住宿紧张、物价偏高，尽早订。']]
+    },
+    { iso:'2026-10-05', date:'10/5', wk:'周一', short:'庐山', title:'庐山 · 日出 + 瀑布',
+      wx:[['山上 7–14°C',''],['晴','good']], stay:'牯岭街（同一家）',
+      items:[
+        ['05:20','起床去含鄱口','日出约 06:10，今天晴天，值得早起。山上只有 7°C，穿厚外套。',['?可选']],
+        ['07:30','回牯岭街早餐','',[]],
+        ['08:30','三叠泉 或 五老峰','三叠泉瀑布最有名，但往返台阶很多，约 3 小时，膝盖不好慎选；五老峰轻松，能远眺鄱阳湖。',['+高赞推荐','!二选一']],
+        ['12:00','午饭','',[]],
+        ['14:00','美庐别墅 + 庐山会议旧址','都在牯岭附近，室内参观为主。',[]],
+        ['16:30','牯岭街散步，买庐山云雾茶','',[]],
+        ['18:00','晚饭','',[]]
+      ],
+      tips:[['等车','景区观光车高峰排队长，留出等车时间。']]
+    },
+    { iso:'2026-10-06', date:'10/6', wk:'周二', short:'返程', title:'下山 · 返程',
+      wx:[['晴','good']], stay:'',
+      items:[
+        ['07:30','早餐，退房下山','',[]],
+        ['09:00','白鹿洞书院 或 秀峰','白鹿洞书院是朱熹讲学的地方，林子里很安静；秀峰就是“飞流直下三千尺”那一带的瀑布。',['?可选']],
+        ['11:00','午饭','',[]],
+        ['12:00','开车回苏州','约 650 km、7 小时，节后返程车多，服务区多休息。',['!返程高峰']],
+        ['19:00','到家','',[]]
+      ]
+    }
+  ],
+  extras: [
+    { id:'prep', tab:'出发前', sub:'清单', html:
+      '<h2>出发前要抢的预约</h2><p class="foot" style="margin:0 0 6px">勾选只保存在这台手机上。</p><ul class="check">'
+      + ['拙政园 / 苏州博物馆实名预约（如果要去）','滕王阁门票','御窑博物馆、中国陶瓷博物馆预约','景德镇瓷泥煨鸡订位','篁岭门票 + 索道','龙虎山门票 + 竹筏联票','庐山门票 + 观光车，确认国庆交通管制','庐山牯岭镇住宿（两晚）','外套、防滑鞋、雨伞、防晒']
+        .map(function(t,i){ return '<li><label><input type="checkbox" id="c'+(i+1)+'"><span>'+t+'</span></label></li>'; }).join('')
+      + '</ul><h3>雨天备选</h3><table class="rows"><tbody>'
+      + '<tr><td>苏州</td><td>苏州博物馆本馆，能看半天</td></tr>'
+      + '<tr><td>南昌</td><td>梅岭换成江西省博物馆或八大山人纪念馆；滕王阁雨夜照样亮灯</td></tr>'
+      + '<tr><td>万年</td><td>神农宫在洞里，不受影响</td></tr>'
+      + '<tr><td>景德镇</td><td>御窑博物馆、中国陶瓷博物馆、找家店做拉坯体验</td></tr>'
+      + '<tr><td>婺源</td><td>小雨的徽派村子像水墨画；大雨就少走山路</td></tr>'
+      + '<tr><td>龙虎山</td><td>竹筏停航就去天师府和上清古镇</td></tr>'
+      + '<tr><td>庐山</td><td>美庐、庐山会议旧址、庐山博物馆、庐山恋电影院</td></tr>'
+      + '</tbody></table><p class="foot">天气为 9 月 27 日的数值预报，会变，每天前一晚再看一下。车程为平日自驾估算，国庆多留 30%–50%。玩法整理自小红书热门笔记和评论，门票、开放时间、演出场次以景区官方公众号为准。</p>'
+    }
+  ]
+};
 </script>
+<script src="app.js"></script>
 </body>
 </html>
