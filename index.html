@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>景德镇一天一夜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&display=swap">
+<style>
+:root{
+  --bg:#F5F7FA; --paper:#FFFFFF; --ink:#18202E; --muted:#5A6477;
+  --line:#DCE2EC; --cobalt:#1E3F8F; --cobalt-soft:#E6ECF8; --kiln:#B4472C;
+  --serif:"Noto Serif SC","Songti SC","STSong",serif;
+  --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0F1522; --paper:#172033; --ink:#E7ECF5; --muted:#9AA5BA;
+    --line:#26324A; --cobalt:#8FB0F5; --cobalt-soft:#1D2A47; --kiln:#E58A6E;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0F1522; --paper:#172033; --ink:#E7ECF5; --muted:#9AA5BA;
+  --line:#26324A; --cobalt:#8FB0F5; --cobalt-soft:#1D2A47; --kiln:#E58A6E;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;padding-inline:16px;padding-block:28px 48px}
+.wrap{max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0}
+header{display:flex;flex-direction:column;gap:10px;padding-bottom:20px;border-bottom:2px solid var(--cobalt)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--cobalt);font-weight:600}
+h1{font-size:40px;font-weight:900;line-height:1.15}
+.lede{margin:0;color:var(--muted)}
+.route{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:14px;margin:0;padding:0;list-style:none}
+.route li{background:var(--cobalt-soft);color:var(--cobalt);padding:3px 10px;border-radius:999px;font-weight:600}
+.route .arr{background:none;padding:0;color:var(--muted);font-weight:400}
+section{display:flex;flex-direction:column;gap:14px}
+h2{font-size:22px;font-weight:600;display:flex;align-items:baseline;gap:10px}
+h2 small{font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:400}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:54px 1fr;gap:12px;padding-block:14px;border-top:1px solid var(--line)}
+.tl li:first-child{border-top:0;padding-top:4px}
+.time{font-variant-numeric:tabular-nums;font-weight:700;color:var(--cobalt);font-size:15px;padding-top:1px}
+.tl h3{margin:0 0 2px;font-size:17px}
+.tl p{margin:0;color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-size:12px;border:1px solid var(--line);border-radius:4px;padding:1px 7px;color:var(--muted)}
+.tag.warn{border-color:var(--kiln);color:var(--kiln)}
+.eat{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.eat div b{display:block;font-size:15px}
+.eat div span{font-size:13px;color:var(--muted)}
+.tips{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.tips b{color:var(--ink)}
+.tips li::marker{color:var(--cobalt)}
+footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">瓷都 · 江西景德镇</div>
+    <h1>景德镇一天一夜</h1>
+    <p class="lede">白天看千年窑火，傍晚逛老里弄，夜里泡陶溪川。节奏不赶，适合第一次来。</p>
+    <ul class="route" aria-label="路线">
+      <li>古窑</li><li class="arr">→</li><li>御窑厂</li><li class="arr">→</li><li>老街里弄</li><li class="arr">→</li><li>陶溪川</li>
+    </ul>
+  </header>
+
+  <section>
+    <h2>白天 <small>看瓷怎么烧出来</small></h2>
+    <ol class="tl">
+      <li><span class="time">08:00</span><div>
+        <h3>本地早餐</h3>
+        <p>一碗冷粉配油条包麻糍，或者饺子粑、碱水粑。街边小店就有，十几块吃饱。</p>
+      </div></li>
+      <li><span class="time">09:00</span><div>
+        <h3>古窑民俗博览区</h3>
+        <p>看复原的柴窑、镇窑，现场有师傅拉坯、利坯、画青花，能把“一件瓷器七十二道工序”看明白。可以体验拉坯。</p>
+        <div class="tags"><span class="tag">约 2.5 小时</span><span class="tag">门票约 95 元</span></div>
+      </div></li>
+      <li><span class="time">12:00</span><div>
+        <h3>午饭</h3>
+        <p>打车去市中心中山路一带，吃景德镇家常菜，顺路去下一站。</p>
+      </div></li>
+      <li><span class="time">13:30</span><div>
+        <h3>御窑厂遗址 + 御窑博物馆</h3>
+        <p>明清官窑所在地。博物馆是一组砖拱建筑，里面有出土的官窑瓷片和修复器物，拍照也很好看。</p>
+        <div class="tags"><span class="tag">约 2 小时</span><span class="tag warn">建议提前线上预约</span></div>
+      </div></li>
+      <li><span class="time">15:30</span><div>
+        <h3>老街里弄散步</h3>
+        <p>御窑厂旁边的祥集弄、彭家弄等老里弄，青石板路、老瓷行和手作小店，随走随停。</p>
+        <div class="tags"><span class="tag">约 1.5 小时</span><span class="tag">免费</span></div>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>夜晚 <small>老厂房里的年轻景德镇</small></h2>
+    <ol class="tl">
+      <li><span class="time">17:30</span><div>
+        <h3>陶溪川文创街区</h3>
+        <p>老宇宙瓷厂改造的园区，红砖厂房和烟囱。先逛陶瓷工业遗产博物馆和设计师小店，天黑后灯一亮最出片。</p>
+        <div class="tags"><span class="tag">园区免费</span><span class="tag warn">周五、周六晚有创意集市</span></div>
+      </div></li>
+      <li><span class="time">19:00</span><div>
+        <h3>晚饭</h3>
+        <p>园区及周边餐厅多，本地菜、咖啡小酒馆都有。</p>
+      </div></li>
+      <li><span class="time">21:00</span><div>
+        <h3>夜宵</h3>
+        <p>景德镇烧烤和夜宵冷粉很有名，吃完回酒店。</p>
+      </div></li>
+      <li><span class="time">次日</span><div>
+        <h3>早上加一站（可选）</h3>
+        <p>时间够就去三宝国际陶艺村，山谷里的溪水、水碓和工作室，早上人少很安静；或周六早上去雕塑瓷厂逛乐天集市。之后返程。</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>必吃</h2>
+    <div class="eat">
+      <div><b>冷粉</b><span>早餐夜宵都能吃</span></div>
+      <div><b>饺子粑</b><span>米皮包馅，蒸着吃</span></div>
+      <div><b>碱水粑</b><span>炒着吃，有嚼劲</span></div>
+      <div><b>油条包麻糍</b><span>甜咸搭配</span></div>
+      <div><b>景德镇烧烤</b><span>夜宵首选</span></div>
+      <div><b>瓷泥煨鸡</b><span>本地特色菜</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>出发前看一眼</h2>
+    <ul class="tips">
+      <li><b>住哪里：</b>住陶溪川附近，夜里逛完走路回；或住御窑厂 / 中山路附近，白天更方便。</li>
+      <li><b>交通：</b>高铁到景德镇北站，市区打车一般 10–30 元，景点之间打车最省事。</li>
+      <li><b>预约：</b>博物馆类景点多需提前在公众号预约，部分周一闭馆，出发前查一下。</li>
+      <li><b>买瓷器：</b>多逛几家再买，市集上的年轻作者作品价格实在；易碎品可以让店家打包直接寄回家。</li>
+      <li><b>穿着：</b>老街是石板路，穿舒服的鞋；夏天午后很热，带伞和水。</li>
+    </ul>
+  </section>
+
+  <footer>门票、开放时间和集市日期会调整，请以景区官方公众号为准。</footer>
+</div>
+</body>
+</html>
