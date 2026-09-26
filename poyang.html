@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>三清山到鄱阳湖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&display=swap">
+<style>
+:root{
+  --bg:#F5F7FA; --paper:#FFFFFF; --ink:#18202E; --muted:#5A6477;
+  --line:#DCE2EC; --cobalt:#1E3F8F; --cobalt-soft:#E6ECF8; --kiln:#B4472C;
+  --serif:"Noto Serif SC","Songti SC","STSong",serif;
+  --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0F1522; --paper:#172033; --ink:#E7ECF5; --muted:#9AA5BA;
+    --line:#26324A; --cobalt:#8FB0F5; --cobalt-soft:#1D2A47; --kiln:#E58A6E;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0F1522; --paper:#172033; --ink:#E7ECF5; --muted:#9AA5BA;
+  --line:#26324A; --cobalt:#8FB0F5; --cobalt-soft:#1D2A47; --kiln:#E58A6E;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;padding-inline:16px;padding-block:28px 48px}
+.wrap{max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0}
+header{display:flex;flex-direction:column;gap:10px;padding-bottom:20px;border-bottom:2px solid var(--cobalt)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--cobalt);font-weight:600}
+h1{font-size:40px;font-weight:900;line-height:1.15}
+.lede{margin:0;color:var(--muted)}
+.route{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:14px;margin:0;padding:0;list-style:none}
+.route li{background:var(--cobalt-soft);color:var(--cobalt);padding:3px 10px;border-radius:999px;font-weight:600}
+.route .arr{background:none;padding:0;color:var(--muted);font-weight:400}
+section{display:flex;flex-direction:column;gap:14px}
+h2{font-size:22px;font-weight:600;display:flex;align-items:baseline;gap:10px}
+h2 small{font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:400}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:54px 1fr;gap:12px;padding-block:14px;border-top:1px solid var(--line)}
+.tl li:first-child{border-top:0;padding-top:4px}
+.time{font-variant-numeric:tabular-nums;font-weight:700;color:var(--cobalt);font-size:15px;padding-top:1px}
+.tl h3{margin:0 0 2px;font-size:17px}
+.tl p{margin:0;color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-size:12px;border:1px solid var(--line);border-radius:4px;padding:1px 7px;color:var(--muted)}
+.tag.warn{border-color:var(--kiln);color:var(--kiln)}
+.eat{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.eat div b{display:block;font-size:15px}
+.eat div span{font-size:13px;color:var(--muted)}
+.tips{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.tips b{color:var(--ink)}
+.tips li::marker{color:var(--cobalt)}
+footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+
+.wx{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media (max-width:480px){.wx{grid-template-columns:repeat(2,1fr)}}
+.wx div{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:2px;font-size:13px;color:var(--muted)}
+.wx b{color:var(--ink);font-size:14px}
+.wx .t{font-variant-numeric:tabular-nums;color:var(--ink)}
+.wx .rain{color:var(--kiln)}
+.day-h{display:flex;flex-direction:column;gap:4px}
+.meta{font-size:13px;color:var(--muted);margin:0}
+.meta b{color:var(--cobalt)}
+.note{background:var(--cobalt-soft);border-radius:8px;padding:12px 14px;font-size:14px;margin:0}
+.note b{color:var(--cobalt)}
+.back{font-size:14px;color:var(--cobalt)}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">杭州 / 上海 → 江西鄱阳 · 9月28日–10月1日</div>
+    <h1>三清山到鄱阳湖</h1>
+    <p class="lede">黄山这几天天天下雨，改走三清山、婺源古村和鄱阳湖。趁天晴先上山，下雨那天去看雨中的古村，最后一天到鄱阳看湖。</p>
+    <ul class="route" aria-label="路线">
+      <li>三清山</li><li class="arr">→</li><li>婺源古村</li><li class="arr">→</li><li>鄱阳湖</li>
+    </ul>
+  </header>
+
+  <section>
+    <h2>天气预报 <small>9月27日查询</small></h2>
+    <div class="wx">
+      <div><b>9/28 周一</b><span>三清山山上</span><span class="t">16–25°C</span><span>多云，可能有阵雨</span></div>
+      <div><b>9/29 周二</b><span>三清山 → 婺源</span><span class="t">山上 15–26°C<br>婺源 25–37°C</span><span>山上天气最好</span></div>
+      <div><b>9/30 周三</b><span>婺源</span><span class="t">24–29°C</span><span class="rain">冷空气到，中小雨</span></div>
+      <div><b>10/1 周四</b><span>鄱阳</span><span class="t">24–28°C</span><span>转凉，零星小雨</span></div>
+    </div>
+    <p class="note"><b>为什么不去黄山：</b>黄山 9/28–10/2 每天降雨概率都在 80% 以上，9/30 雨量最大，上山基本看不到景。山下婺源、景德镇前两天白天有 35°C 以上，所以前两天放在凉快的三清山上。10/2 全省有大雨，这趟正好在大雨前结束。</p>
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>第 1 天 · 9/28 <small>上三清山</small></h2>
+      <p class="meta"><b>住：</b>三清山山上酒店（看日落和第二天的日出）</p>
+    </div>
+    <ol class="tl">
+      <li><span class="time">早上</span><div>
+        <h3>坐高铁到玉山南站</h3>
+        <p>杭州东约 1.5 小时，上海虹桥约 3 小时。出站坐景区大巴到三清山南部景区，约 1 小时。</p>
+      </div></li>
+      <li><span class="time">中午</span><div>
+        <h3>坐索道上山</h3>
+        <p>三清山是花岗岩峰林，山上几乎没有人造景观。先把行李放到山上的酒店。</p>
+      </div></li>
+      <li><span class="time">下午</span><div>
+        <h3>南清园</h3>
+        <p>三清山最精华的一段，巨蟒出山、东方女神两块奇石都在这里。山路平缓，走 2–3 小时。</p>
+        <div class="tags"><span class="tag warn">打雷时索道会停，出发前看景区公众号</span></div>
+      </div></li>
+      <li><span class="time">傍晚</span><div>
+        <h3>在山上看日落</h3>
+        <p>游客下山后山里很安静，傍晚常有云雾在峰林间飘动。</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>第 2 天 · 9/29 <small>山上悬空栈道，傍晚到婺源</small></h2>
+      <p class="meta"><b>住：</b>思溪延村或汪口村里的民宿</p>
+    </div>
+    <ol class="tl">
+      <li><span class="time">05:40</span><div>
+        <h3>日出和云海</h3>
+        <p>这一天是四天里山上天气最好的一天，早起碰碰运气。</p>
+      </div></li>
+      <li><span class="time">上午</span><div>
+        <h3>西海岸 + 阳光海岸栈道</h3>
+        <p>修在悬崖边上的高空栈道，一边是深谷，一边是森林。上午走完，中午前下山。</p>
+        <div class="tags"><span class="tag">约 3 小时</span><span class="tag">穿防滑鞋</span></div>
+      </div></li>
+      <li><span class="time">下午</span><div>
+        <h3>去婺源</h3>
+        <p>三清山到婺源车程约 1.5–2 小时，包车或自驾最方便。婺源下午有 37°C，路上正好避开最热的时候。</p>
+      </div></li>
+      <li><span class="time">傍晚</span><div>
+        <h3>住进古村</h3>
+        <p>晚上在村里散步，白墙黑瓦、小河石桥，吃一顿农家菜：粉蒸肉、清明果、荷包红鲤鱼。</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>第 3 天 · 9/30 <small>下雨天看徽派古村</small></h2>
+      <p class="meta"><b>住：</b>婺源村里民宿（同一家连住，不用搬行李）</p>
+    </div>
+    <ol class="tl">
+      <li><span class="time">上午</span><div>
+        <h3>思溪延村</h3>
+        <p>清代商人留下的老宅群，商业化少，住的都是本地人。下雨时青石板和马头墙最好看，屋里的木雕也不怕淋。</p>
+        <div class="tags"><span class="tag">约 2 小时</span><span class="tag">带伞</span></div>
+      </div></li>
+      <li><span class="time">下午</span><div>
+        <h3>汪口 + 晓起</h3>
+        <p>汪口是河边的古村，老街沿着江边一条长巷走到底；晓起村口有几百年的古樟树。雨小时出门，雨大就在民宿喝茶看雨。</p>
+        <div class="tags"><span class="tag">约 3 小时</span><span class="tag warn">不建议去篁岭，国庆前后人多且商业化</span></div>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>第 4 天 · 10/1 <small>到鄱阳看湖</small></h2>
+      <p class="meta"><b>终点：</b>江西鄱阳</p>
+    </div>
+    <ol class="tl">
+      <li><span class="time">07:30</span><div>
+        <h3>早点出发去鄱阳</h3>
+        <p>婺源到鄱阳约 2 小时，经过景德镇。国庆第一天路上车多，越早走越好。</p>
+      </div></li>
+      <li><span class="time">上午</span><div>
+        <h3>鄱阳湖国家湿地公园</h3>
+        <p>中国最大的淡水湖。秋天水位下降，湖里露出大片草洲和芦苇，早到的候鸟开始出现。</p>
+        <div class="tags"><span class="tag">约 3 小时</span><span class="tag">候鸟高峰在 11 月以后</span></div>
+      </div></li>
+      <li><span class="time">中午</span><div>
+        <h3>吃鄱阳湖鲜</h3>
+        <p>湖边渔家吃鄱阳湖的鱼虾和藜蒿炒腊肉。</p>
+      </div></li>
+      <li><span class="time">傍晚</span><div>
+        <h3>湖边看日落</h3>
+        <p>找一处湖边渔村，看渔船回港和湖上落日，行程在这里结束。</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>出发前看一眼</h2>
+    <ul class="tips">
+      <li><b>交通：</b>三清山、婺源村落和鄱阳湖之间公交不方便。建议在玉山南站租车（问清能否在鄱阳异地还车），或者分段包车。</li>
+      <li><b>订房：</b>国庆前后三清山山上和婺源民宿很紧张，今天就订。</li>
+      <li><b>衣服：</b>山上早晚只有 15°C 左右，带件外套；9/30 起全线降温，雨具和防滑鞋必带。</li>
+      <li><b>备选：</b>如果 9/28 三清山雷雨索道停运，先去婺源，把三清山挪到 9/29 一天往返。</li>
+      <li><b>天气会变：</b>出发前一天再看一下中国天气网，重点看 9/28 三清山有没有雷雨。</li>
+    </ul>
+  </section>
+
+  <footer>天气来自 Open-Meteo 数值预报，9 月 27 日查询。车程、索道和门票以景区官方公众号及 12306 为准。<br><a class="back" href="./">景德镇一天一夜攻略 →</a></footer>
+</div>
+</body>
+</html>
