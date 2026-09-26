@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>江西十日山水</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&display=swap">
+<style>
+:root{
+  --bg:#F5F7FA; --paper:#FFFFFF; --ink:#18202E; --muted:#5A6477;
+  --line:#DCE2EC; --cobalt:#1E3F8F; --cobalt-soft:#E6ECF8; --kiln:#B4472C;
+  --serif:"Noto Serif SC","Songti SC","STSong",serif;
+  --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0F1522; --paper:#172033; --ink:#E7ECF5; --muted:#9AA5BA;
+    --line:#26324A; --cobalt:#8FB0F5; --cobalt-soft:#1D2A47; --kiln:#E58A6E;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0F1522; --paper:#172033; --ink:#E7ECF5; --muted:#9AA5BA;
+  --line:#26324A; --cobalt:#8FB0F5; --cobalt-soft:#1D2A47; --kiln:#E58A6E;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;padding-inline:16px;padding-block:28px 48px}
+.wrap{max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0}
+header{display:flex;flex-direction:column;gap:10px;padding-bottom:20px;border-bottom:2px solid var(--cobalt)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--cobalt);font-weight:600}
+h1{font-size:40px;font-weight:900;line-height:1.15}
+.lede{margin:0;color:var(--muted)}
+.route{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:14px;margin:0;padding:0;list-style:none}
+.route li{background:var(--cobalt-soft);color:var(--cobalt);padding:3px 10px;border-radius:999px;font-weight:600}
+.route .arr{background:none;padding:0;color:var(--muted);font-weight:400}
+section{display:flex;flex-direction:column;gap:14px}
+h2{font-size:22px;font-weight:600;display:flex;align-items:baseline;gap:10px}
+h2 small{font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:400}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:54px 1fr;gap:12px;padding-block:14px;border-top:1px solid var(--line)}
+.tl li:first-child{border-top:0;padding-top:4px}
+.time{font-variant-numeric:tabular-nums;font-weight:700;color:var(--cobalt);font-size:15px;padding-top:1px}
+.tl h3{margin:0 0 2px;font-size:17px}
+.tl p{margin:0;color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-size:12px;border:1px solid var(--line);border-radius:4px;padding:1px 7px;color:var(--muted)}
+.tag.warn{border-color:var(--kiln);color:var(--kiln)}
+.eat{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.eat div b{display:block;font-size:15px}
+.eat div span{font-size:13px;color:var(--muted)}
+.tips{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.tips b{color:var(--ink)}
+.tips li::marker{color:var(--cobalt)}
+footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+
+.wx{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media (max-width:480px){.wx{grid-template-columns:repeat(2,1fr)}}
+.wx div{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:2px;font-size:13px;color:var(--muted)}
+.wx b{color:var(--ink);font-size:14px}
+.wx .t{font-variant-numeric:tabular-nums;color:var(--ink)}
+.wx .rain{color:var(--kiln)}
+.day-h{display:flex;flex-direction:column;gap:4px}
+.meta{font-size:13px;color:var(--muted);margin:0}
+.meta b{color:var(--cobalt)}
+.note{background:var(--cobalt-soft);border-radius:8px;padding:12px 14px;font-size:14px;margin:0}
+.note b{color:var(--cobalt)}
+.back{font-size:14px;color:var(--cobalt)}
+
+
+.ov{width:100%;border-collapse:collapse;font-size:14px}
+.ov th,.ov td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.ov th{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.ov td:first-child{font-variant-numeric:tabular-nums;font-weight:700;color:var(--cobalt);white-space:nowrap}
+.ov .w{white-space:nowrap}
+.scroll{overflow-x:auto}
+.pill{display:inline-block;font-size:12px;padding:0 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.pill.good{border-color:#3C8A5A;color:#3C8A5A}
+.pill.bad{border-color:var(--kiln);color:var(--kiln)}
+.wxline{font-size:14px;margin:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.xhs{font-size:13px;color:var(--muted);border-left:2px solid var(--line);padding-left:10px;margin:0}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">江西 · 9月27日–10月6日</div>
+    <h1>江西十日山水</h1>
+    <p class="lede">因为天气把黄山换掉，改走三清山、万年神农宫、景德镇、婺源、龙虎山和庐山。每个地方的玩法参考了小红书上点赞和评论最多的笔记。</p>
+    <ul class="route" aria-label="路线">
+      <li>三清山</li><li class="arr">→</li><li>万年</li><li class="arr">→</li><li>景德镇</li><li class="arr">→</li><li>婺源</li><li class="arr">→</li><li>鹰潭</li><li class="arr">→</li><li>庐山</li>
+    </ul>
+  </header>
+
+  <section>
+    <h2>总览 <small>天气为 9月27日预报</small></h2>
+    <div class="scroll"><table class="ov">
+      <thead><tr><th>日期</th><th>地点</th><th>天气</th></tr></thead>
+      <tbody><tr><td>9/27–9/28</td><td>三清山</td><td class="w"><span class="pill">9/27 阵雨</span> <span class="pill good">9/28 多云 16–25°C</span></td></tr><tr><td>9/29</td><td>三清山 → 万年</td><td class="w"><span class="pill good">三清山 15–26°C</span> <span class="pill">万年 28–37°C 很热</span></td></tr><tr><td>9/30</td><td>万年神农宫 → 景德镇</td><td class="w"><span class="pill">万年 25–34°C</span> <span class="pill">景德镇 24–31°C</span></td></tr><tr><td>10/1</td><td>景德镇</td><td class="w"><span class="pill">23–27°C 零星小雨</span></td></tr><tr><td>10/2</td><td>婺源</td><td class="w"><span class="pill bad">大雨 20–24°C，约 50mm</span></td></tr><tr><td>10/3</td><td>鹰潭龙虎山</td><td class="w"><span class="pill bad">大雨 20–23°C，约 30mm</span></td></tr><tr><td>10/4–10/5</td><td>庐山</td><td class="w"><span class="pill good">10/4 转晴 8–15°C</span> <span class="pill good">10/5 晴 7–14°C</span></td></tr><tr><td>10/6</td><td>返程</td><td class="w"><span class="pill good">晴</span></td></tr></tbody>
+    </table></div>
+    <p class="note"><b>天气提醒：</b>10/2 婺源预报大雨（约 50mm），10/1 只有零星小雨。如果能调，建议 10/1 去婺源、10/2 留在景德镇逛室内的瓷厂和小店，景德镇 10/2 雨量只有婺源的一半。10/3 鹰潭也有大雨，龙虎山竹筏可能停航。10/4 起冷空气过境转晴，庐山这两天天气最好，但会降到 7°C 左右。</p>
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>9/27–9/28 <small>三清山 · 周日–周一</small></h2>
+      <p class="wxline"><span class="pill">9/27 阵雨</span> <span class="pill good">9/28 多云 16–25°C</span></p>
+      <p class="meta"><b>住：</b>三清山山上或山下酒店</p>
+    </div>
+    <ol class="tl">
+      <li><span class="time">9/27</span><div>
+        <h3>到三清山</h3>
+        <p>上饶站坐景区大巴约 1 小时，单程 40–60 元，最好提前买好往返票。门口的黑车容易被加价，不建议坐。今天山上有阵雨，先安顿好，傍晚在山脚走走。</p>
+        
+      </div></li>
+      <li><span class="time">9/28</span><div>
+        <h3>精华环线</h3>
+        <p>网友推荐的省力路线：港首索道上，经三清福地、阳光海岸、禹皇顶、一线天、巨蟒出山、东方女神，从金沙索道下，坐免费景区巴士回港首。全程约 6 小时，评论里说“一点也不懒人”，量力而行。</p>
+        <div class="tags"><span class="tag">约 6 小时</span><span class="tag warn">索道 18:00 前后停运</span><span class="tag">外双溪、港首索道人少</span></div>
+      </div></li>
+    </ol>
+    <p class="xhs">网友提醒：索道傍晚就停，赶不上只能摸黑走下山，很危险。</p>
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>9/29 <small>三清山 → 万年 · 周二</small></h2>
+      <p class="wxline"><span class="pill good">三清山 15–26°C</span> <span class="pill">万年 28–37°C 很热</span></p>
+      <p class="meta"><b>住：</b>万年县城</p>
+    </div>
+    <ol class="tl">
+      <li><span class="time">上午</span><div>
+        <h3>山上补看一段</h3>
+        <p>9/28 没走完的阳光海岸或西海岸栈道，上午天气还不错。</p>
+        
+      </div></li>
+      <li><span class="time">下午</span><div>
+        <h3>转去万年</h3>
+        <p>三清山到万年车程约 2 小时。万年下午有 37°C，路上正好避开最热的时候，晚上在县城早点休息。</p>
+        <div class="tags"><span class="tag warn">这一天你留空了，这是我的建议</span></div>
+      </div></li>
+    </ol>
+    
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>9/30 <small>万年神农宫 → 景德镇 · 周三</small></h2>
+      <p class="wxline"><span class="pill">万年 25–34°C</span> <span class="pill">景德镇 24–31°C</span></p>
+      <p class="meta"><b>住：</b>景德镇（连住 2 晚）</p>
+    </div>
+    <ol class="tl">
+      <li><span class="time">上午</span><div>
+        <h3>万年神农宫</h3>
+        <p>地下溶洞，钟乳石、石笋、石幔，还有一条清澈的地下暗河。洞里凉快，外面再热也不怕。本地人笔记说洞里灯光变化多，拍照好看。</p>
+        <div class="tags"><span class="tag">约 2 小时</span><span class="tag">65 岁以上可能有半价票</span></div>
+      </div></li>
+      <li><span class="time">下午</span><div>
+        <h3>转去景德镇</h3>
+        <p>车程约 1.5 小时。晚上逛陶溪川夜市，吃烧烤夜宵。</p>
+        
+      </div></li>
+    </ol>
+    <p class="xhs">神农宫的笔记不多，点赞最高的只有几十个，属于小众景点。</p>
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>10/1 <small>景德镇 · 周四 · 国庆</small></h2>
+      <p class="wxline"><span class="pill">23–27°C 零星小雨</span></p>
+      <p class="meta"><b>住：</b>景德镇</p>
+    </div>
+    <ol class="tl">
+      <li><span class="time">上午</span><div>
+        <h3>雕塑瓷厂</h3>
+        <p>老国营瓷厂，满是手艺人小店，网友公认最全的淘瓷地，记得砍价。</p>
+        
+      </div></li>
+      <li><span class="time">中午</span><div>
+        <h3>陶阳里老巷 + 抚州弄</h3>
+        <p>红墙老巷只逛巷子不进馆，在抚州弄小吃街吃饺子粑、碱水粑、冷粉。</p>
+        <div class="tags"><span class="tag warn">国庆人多，老城区停车难</span></div>
+      </div></li>
+      <li><span class="time">下午</span><div>
+        <h3>三宝村</h3>
+        <p>溪边的老水碓和陶艺工作室，可以亲手捏个杯子。</p>
+        
+      </div></li>
+    </ol>
+    <p class="xhs">详细玩法见 <a class="back" href="./">景德镇一天一夜攻略</a>。</p>
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>10/2 <small>婺源 · 周五 · 国庆</small></h2>
+      <p class="wxline"><span class="pill bad">大雨 20–24°C，约 50mm</span></p>
+      <p class="meta"><b>住：</b>婺源村里民宿</p>
+    </div>
+    <ol class="tl">
+      <li><span class="time">全天</span><div>
+        <h3>雨中古村</h3>
+        <p>雨太大就少走路。推荐思溪延村（清代老宅，住的都是本地人）和汪口、晓起，屋里的木雕不怕淋。篁岭晒秋最有名，但评论里不少人吐槽网红化、人多，大雨天山路也滑，不建议。</p>
+        <div class="tags"><span class="tag">带伞穿防滑鞋</span><span class="tag warn">婺女洲评论里有人避雷</span></div>
+      </div></li>
+    </ol>
+    <p class="xhs">网友吐槽：“全篇网红出片字眼”“千篇一律的打铁花”，想要原汁原味就去小村子。</p>
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>10/3 <small>鹰潭龙虎山 · 周六 · 国庆</small></h2>
+      <p class="wxline"><span class="pill bad">大雨 20–23°C，约 30mm</span></p>
+      <p class="meta"><b>住：</b>上清古镇或龙虎山景区附近</p>
+    </div>
+    <ol class="tl">
+      <li><span class="time">上午</span><div>
+        <h3>上清古镇 + 天师府</h3>
+        <p>道教祖庭，红墙古柏，雨天也能逛。古镇小吃有上清豆腐、板栗粽。</p>
+        
+      </div></li>
+      <li><span class="time">中午</span><div>
+        <h3>竹筏漂流</h3>
+        <p>网友说“竹筏必坐，不坐等于白来”，顺流约 40 分钟，丹霞山水像一幅画。大雨时可能停航，到了现场问。</p>
+        <div class="tags"><span class="tag warn">可能停航</span></div>
+      </div></li>
+      <li><span class="time">下午</span><div>
+        <h3>桃花洲悬棺表演</h3>
+        <p>12:00、14:00、16:00 各一场，提前 20 分钟占位，左侧前排视野最好。雨小的话再去象鼻山看丹霞。</p>
+        <div class="tags"><span class="tag">景区很大，一定坐观光车</span></div>
+      </div></li>
+    </ol>
+    <p class="xhs">网友建议：高铁到鹰潭站比鹰潭北站近，打车约 30 元到景区。门票、观光车、竹筏买联票最划算。</p>
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>10/4–10/5 <small>庐山 · 周日–周一</small></h2>
+      <p class="wxline"><span class="pill good">10/4 转晴 8–15°C</span> <span class="pill good">10/5 晴 7–14°C</span></p>
+      <p class="meta"><b>住：</b>牯岭街附近（连住 2 晚）</p>
+    </div>
+    <ol class="tl">
+      <li><span class="time">10/4</span><div>
+        <h3>西线：湖景和山谷</h3>
+        <p>牯岭街 → 如琴湖 → 花径 → 锦绣谷 → 仙人洞 → 牯岭街。第一天不累，适应山上节奏，晚上在牯岭街吃饭散步。</p>
+        <div class="tags"><span class="tag">坐索道上山省时省力</span></div>
+      </div></li>
+      <li><span class="time">10/5</span><div>
+        <h3>东线：看大景</h3>
+        <p>早起去含鄱口看日出云海，还能远眺鄱阳湖。之后五老峰和三叠泉二选一：五老峰视野开阔，三叠泉瀑布壮观但台阶多，爬上来很累。</p>
+        <div class="tags"><span class="tag warn">早晚只有 7–8°C，带厚外套</span></div>
+      </div></li>
+    </ol>
+    <p class="xhs">网友建议：住牯岭街最方便；自驾把车停山下，节假日山路可能管控；两天别把景点塞满。</p>
+  </section>
+
+  <section>
+    <div class="day-h">
+      <h2>10/6 <small>返程 · 周二</small></h2>
+      <p class="wxline"><span class="pill good">晴</span></p>
+      
+    </div>
+    <ol class="tl">
+      <li><span class="time">上午</span><div>
+        <h3>下山回家</h3>
+        <p>从九江站或庐山站坐高铁。高铁别买太早，留出下山的时间。</p>
+        
+      </div></li>
+    </ol>
+    
+  </section>
+
+  <section>
+    <h2>出发前看一眼</h2>
+    <ul class="tips">
+      <li><b>衣服：</b>前几天山下还有 35°C 以上，最后在庐山只有 7°C，短袖和厚外套都要带。</li>
+      <li><b>雨具：</b>10/2、10/3 大雨，带伞、雨衣和防滑鞋。</li>
+      <li><b>订房：</b>国庆期间婺源、龙虎山、庐山牯岭街的住宿很紧张，尽快订好。</li>
+      <li><b>天气会变：</b>每天前一晚看一下中国天气网，雨大的那天换成室内项目。</li>
+    </ul>
+  </section>
+
+  <footer>天气来自 Open-Meteo 数值预报，9 月 27 日查询。玩法参考小红书网友笔记，车程、门票、索道和表演时间以景区官方公众号及 12306 为准。<br><a class="back" href="./">景德镇一天一夜攻略 →</a></footer>
+</div>
+</body>
+</html>
