@@ -41,7 +41,7 @@
     return h + '</div>';
   }
 
-  var pages = T.days.map(function(d){ return { tab:d.date, sub:d.short, id:'d'+d.date.replace('/',''), iso:d.iso, html:dayPanel(d) }; });
+  var pages = T.days.map(function(d){ return { tab:d.date, sub:d.short, id:'d'+d.iso.slice(5).replace('-',''), iso:d.iso, html:dayPanel(d) }; });
   (T.extras||[]).forEach(function(x){ pages.push({ tab:x.tab, sub:x.sub||'', id:x.id, html:'<div class="inner extra">'+x.html+'</div>' }); });
 
   document.title = T.title;
@@ -73,7 +73,7 @@
     var b = tabs[i];
     tabBar.scrollTo({ left: b.offsetLeft - (tabBar.clientWidth - b.offsetWidth)/2, behavior:'smooth' });
     prev.disabled = i === 0; next.disabled = i === pages.length-1;
-    pos.textContent = (i < T.days.length ? '第 '+(i+1)+' 天 / 共 '+T.days.length+' 天' : pages[i].tab) + ' · 左右滑动';
+    pos.textContent = i < T.days.length ? '第 '+(i+1)+' / '+T.days.length+' 天' : pages[i].tab;
     store.set(KEY, String(i));
     if (history.replaceState) history.replaceState(null, '', '#'+pages[i].id);
   }
@@ -103,8 +103,9 @@
   if (start < 0) { var s = parseInt(store.get(KEY), 10); if (s >= 0 && s < pages.length) start = s; }
   if (start < 0) start = 0;
   go(start, false);
-  var nowLi = document.querySelector('#'+pages[start].id+' li.now');
-  if (nowLi) nowLi.scrollIntoView({ block:'center' });
+  // bring the current hour into view without scrollIntoView, which would also nudge the pager sideways
+  var panel = document.getElementById(pages[start].id), nowLi = panel.querySelector('li.now');
+  if (nowLi) panel.scrollTop = Math.max(0, nowLi.offsetTop - panel.clientHeight/2);
 
   // checklist state per device
   var CK = 'trip-check-'+T.self, saved = {};
