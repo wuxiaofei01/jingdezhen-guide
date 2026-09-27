@@ -30,11 +30,25 @@
       + (d.stay ? '<p class="stay"><b>住：</b>'+esc(d.stay)+'</p>' : '')
       + '</div><ol class="hours">';
     d.items.forEach(function(it,i){
-      h += '<li'+(i===nowIdx?' class="now"':'')+'><span class="hr">'+esc(it[0])+'</span><div>'
-        + '<h3>'+esc(it[1])+'</h3>'
+      var more = (T.details || {})[d.iso+' '+it[0]];
+      var head = '<h3>'+esc(it[1])+'</h3>'
         + (it[2] ? '<p>'+esc(it[2])+'</p>' : '')
-        + (it[3] && it[3].length ? '<div class="tags">'+it[3].map(tag).join('')+'</div>' : '')
-        + '</div></li>';
+        + (it[3] && it[3].length ? '<div class="tags">'+it[3].map(tag).join('')+'</div>' : '');
+      var cls = (i===nowIdx ? 'now ' : '') + (more ? 'has-more' : '');
+      h += '<li'+(cls ? ' class="'+cls.trim()+'"' : '')+'><span class="hr">'+esc(it[0])+'</span><div>';
+      if (more) {
+        // detail sections: [heading, text] or [heading, [list items]]
+        h += '<details><summary>'+head+'<span class="more-hint" aria-hidden="true"></span></summary><div class="more-body">'
+          + more.map(function(sec){
+              return '<h4>'+esc(sec[0])+'</h4>' + (Array.isArray(sec[1])
+                ? '<ul>'+sec[1].map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'
+                : '<p>'+esc(sec[1])+'</p>');
+            }).join('')
+          + '</div></details>';
+      } else {
+        h += head;
+      }
+      h += '</div></li>';
     });
     h += '</ol>';
     (d.tips||[]).forEach(function(t){ h += '<p class="tip'+(t[2]?' '+t[2]:'')+'"><b>'+esc(t[0])+'：</b>'+esc(t[1])+'</p>'; });
@@ -106,6 +120,12 @@
   // bring the current hour into view without scrollIntoView, which would also nudge the pager sideways
   var panel = document.getElementById(pages[start].id), nowLi = panel.querySelector('li.now');
   if (nowLi) panel.scrollTop = Math.max(0, nowLi.offsetTop - panel.clientHeight/2);
+
+  // tapping the time column opens the same detail as tapping the text
+  pager.addEventListener('click', function(e){
+    var hr = e.target.closest && e.target.closest('li.has-more > .hr');
+    if (hr) { var dt = hr.parentNode.querySelector('details'); dt.open = !dt.open; }
+  });
 
   // checklist state per device
   var CK = 'trip-check-'+T.self, saved = {};

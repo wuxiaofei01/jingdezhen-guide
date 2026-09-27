@@ -146,3 +146,17 @@ a{color:var(--cobalt)}
 [data-look="paper"] .bar button{background:var(--chip);border-color:transparent}
 [data-look="paper"] .bar button#next{background:var(--cobalt);color:#FFFFFF}
 [data-look="paper"] .bar button:disabled{opacity:.4}
+
+/* ---------- 点开看详情 ---------- */
+.hours summary{list-style:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.hours summary::-webkit-details-marker{display:none}
+.more-hint{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:600;color:var(--cobalt)}
+.more-hint::before{content:"看详情 ▾"}
+details[open] .more-hint::before{content:"收起 ▴"}
+li.has-more > .hr{cursor:pointer}
+.more-body{margin-top:10px;background:var(--chip,var(--cobalt-soft));border-radius:12px;padding:12px 14px}
+.more-body h4{margin:12px 0 4px;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--cobalt)}
+.more-body h4:first-child{margin-top:0}
+.more-body ul{margin:0;padding-left:1.1em}
+.hours .more-body li{display:list-item;grid-template-columns:none;padding:0;margin:3px 0;border:0;font-size:14px;color:var(--ink);line-height:1.6}
+.hours .more-body p{margin:0;color:var(--ink)}
